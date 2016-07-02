@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:padding="4dp"
+        android:id="@+id/frameLayout">
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="3"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/top_left_map_block"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#f3e5cc">
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/top_center_map_block"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#f3e5cc">
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/top_right_map_block"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#f3e5cc">
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/center_left_map_block"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#f3e5cc">
+            </ImageView>
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#ff0000">
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/center_right_map_block"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#f3e5cc">
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/bottom_left_map_block"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#f3e5cc">
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/bottom_center_map_block"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#f3e5cc">
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/bottom_right_map_block"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="#f3e5cc">
+            </ImageView>
+
+        </GridLayout>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/frameLayout"
+        android:layout_toEndOf="@+id/frameLayout">
+
+        <ImageButton
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/up_button"
+            android:layout_marginTop="47dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageButton
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/down_button"
+            android:layout_below="@+id/up_button"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageButton
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/left_button"
+            android:layout_alignTop="@+id/down_button"
+            android:layout_toLeftOf="@+id/down_button"
+            android:layout_toStartOf="@+id/down_button"/>
+
+        <ImageButton
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/right_button"
+            android:layout_alignTop="@+id/down_button"
+            android:layout_toRightOf="@+id/down_button"
+            android:layout_toEndOf="@+id/down_button"/>
+    </RelativeLayout>
+
+</RelativeLayout>
