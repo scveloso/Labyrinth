@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorPath">
+        #DABD6D
+    </color>
+
+    <color name="colorWall">
+        #725E43
+    </color>
 </resources>

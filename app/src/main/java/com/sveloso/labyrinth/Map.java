@@ -24,6 +24,7 @@ public class Map {
 
     private Map (Context context) {
         mContext = context.getApplicationContext();
+        mMap = new LinkedList<>();
 
         List<Integer> row1 = new LinkedList<>();
         List<Integer> row2 = new LinkedList<>();
@@ -98,9 +99,9 @@ public class Map {
     }
 
     // Returns whether there is a 0 or a 1 at the coordinate
-    public int getType(int row, int column) {
-        List<Integer> rowList = mMap.get(row);
-        int type = rowList.get(column);
+    public int getType(int x, int y) {
+        List<Integer> rowList = mMap.get(y);
+        int type = rowList.get(x);
         return type;
     }
 }
