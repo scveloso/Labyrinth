@@ -41,6 +41,8 @@ public class LabyrinthFragment extends Fragment {
         super.onCreate(savedInstanceState);
         sMap = Map.get(getActivity());
         sPlayer = Player.get(getActivity());
+        sPlayer.setXcoordinate(sMap.getStartingX());
+        sPlayer.setYcoordinate(sMap.getStartingY());
     }
 
     @Override
@@ -64,9 +66,7 @@ public class LabyrinthFragment extends Fragment {
             public void onClick(View view) {
                 sPlayer.setYcoordinate(sPlayer.getYcoordinate() - 1);
                 updateMapDisplay();
-                // IF block above is passable terrain
-                // Move player up by one y coordinate
-                // Update blocks
+                updateControls();
             }
         });
 
@@ -76,9 +76,7 @@ public class LabyrinthFragment extends Fragment {
             public void onClick(View view) {
                 sPlayer.setYcoordinate(sPlayer.getYcoordinate() + 1);
                 updateMapDisplay();
-                // IF block below is passable terrain
-                // Move player down by one y coordinate
-                // Update blocks
+                updateControls();
             }
         });
 
@@ -88,9 +86,7 @@ public class LabyrinthFragment extends Fragment {
             public void onClick(View view) {
                 sPlayer.setXcoordinate(sPlayer.getXcoordinate() - 1);
                 updateMapDisplay();
-                // IF block on left is passable terrain
-                // Move player left by one x coordinate
-                // Update blocks
+                updateControls();
             }
         });
 
@@ -100,13 +96,12 @@ public class LabyrinthFragment extends Fragment {
             public void onClick(View view) {
                 sPlayer.setXcoordinate(sPlayer.getXcoordinate() + 1);
                 updateMapDisplay();
-                // IF block on right is passable terrain
-                // move player right by one x coordinate
-                // update blocks
+                updateControls();
             }
         });
 
         updateMapDisplay();
+        updateControls();
         return v;
     }
 
@@ -116,14 +111,47 @@ public class LabyrinthFragment extends Fragment {
         updateBottomMapBlocks();
     }
 
+    // Check whether path up/down/left/right is blocked by walls
+    // Prevent movement if blocked by walls
     private void updateControls() {
+        // Update up button control
         int topCenterX = sPlayer.getXcoordinate();
         int topCenterY = sPlayer.getYcoordinate() - 1;
         int topCenterType = sMap.getType(topCenterX, topCenterY);
         if (topCenterType == 0) {
-            mTopCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
+            mUpButton.setEnabled(false);
         } else if (topCenterType == 1) {
-            mTopCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+            mUpButton.setEnabled(true);
+        }
+
+        // Update down button control
+        int bottomCenterX = sPlayer.getXcoordinate();
+        int bottomCenterY = sPlayer.getYcoordinate() + 1;
+        int bottomCenterType = sMap.getType(bottomCenterX, bottomCenterY);
+        if (bottomCenterType == 0) {
+            mDownButton.setEnabled(false);
+        } else if (bottomCenterType == 1) {
+            mDownButton.setEnabled(true);
+        }
+
+        // Update left button control
+        int centerLeftX = sPlayer.getXcoordinate() - 1;
+        int centerLeftY = sPlayer.getYcoordinate();
+        int centerLeftType = sMap.getType(centerLeftX, centerLeftY);
+        if (centerLeftType == 0) {
+            mLeftButton.setEnabled(false);
+        } else if (centerLeftType == 1) {
+            mLeftButton.setEnabled(true);
+        }
+
+        // Update right button control
+        int centerRightX = sPlayer.getXcoordinate() + 1;
+        int centerRightY = sPlayer.getYcoordinate();
+        int centerRightType = sMap.getType(centerRightX, centerRightY);
+        if (centerRightType == 0) {
+            mRightButton.setEnabled(false);
+        } else if (centerRightType == 1) {
+            mRightButton.setEnabled(true);
         }
     }
 

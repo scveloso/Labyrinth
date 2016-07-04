@@ -22,8 +22,6 @@ public class Player {
 
     private Player (Context context) {
         mContext = context;
-        mXcoordinate = 3;
-        mYcoordinate = 5;
     }
 
     public int getXcoordinate() {

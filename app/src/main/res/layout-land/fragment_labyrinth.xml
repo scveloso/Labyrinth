@@ -104,14 +104,16 @@
             android:id="@+id/up_button"
             android:layout_marginTop="47dp"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/ic_up_arrow"/>
 
         <ImageButton
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:id="@+id/down_button"
             android:layout_below="@+id/up_button"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/ic_down_arrow"/>
 
         <ImageButton
             android:layout_width="80dp"
@@ -119,7 +121,8 @@
             android:id="@+id/left_button"
             android:layout_alignTop="@+id/down_button"
             android:layout_toLeftOf="@+id/down_button"
-            android:layout_toStartOf="@+id/down_button"/>
+            android:layout_toStartOf="@+id/down_button"
+            android:background="@mipmap/ic_left_arrow"/>
 
         <ImageButton
             android:layout_width="80dp"
@@ -127,7 +130,8 @@
             android:id="@+id/right_button"
             android:layout_alignTop="@+id/down_button"
             android:layout_toRightOf="@+id/down_button"
-            android:layout_toEndOf="@+id/down_button"/>
+            android:layout_toEndOf="@+id/down_button"
+            android:background="@mipmap/ic_right_button"/>
     </RelativeLayout>
 
 </RelativeLayout>
