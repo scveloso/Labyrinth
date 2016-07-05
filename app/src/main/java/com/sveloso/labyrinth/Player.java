@@ -13,6 +13,8 @@ public class Player {
     private int mXcoordinate;
     private int mYcoordinate;
 
+    private int mHealth;
+
     public static Player get(Context context) {
         if (sPlayer == null) {
             sPlayer = new Player (context);
@@ -22,6 +24,7 @@ public class Player {
 
     private Player (Context context) {
         mContext = context;
+        mHealth = 200;
     }
 
     public int getXcoordinate() {
@@ -38,5 +41,13 @@ public class Player {
 
     public void setYcoordinate(int ycoordinate) {
         mYcoordinate = ycoordinate;
+    }
+
+    public int getHealth() {
+        return mHealth;
+    }
+
+    public void setHealth(int health) {
+        mHealth = health;
     }
 }

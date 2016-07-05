@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="156dp">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/enemy_pic_image_view"
+            android:layout_marginLeft="135dp"
+            android:layout_marginStart="135dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="#bdbdbd"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Enemy"
+            android:id="@+id/enemy_name_text_view"
+            android:layout_marginLeft="35dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="28dp"
+            android:layout_alignTop="@+id/enemy_pic_image_view"
+            android:layout_toRightOf="@+id/enemy_pic_image_view"
+            android:layout_toEndOf="@+id/enemy_pic_image_view"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/enemy_name_text_view"
+            android:layout_alignLeft="@+id/enemy_name_text_view"
+            android:layout_alignStart="@+id/enemy_name_text_view"
+            android:background="#e70000"/>
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:id="@+id/enemy_health_image_view"
+            android:background="#00a339"
+            android:layout_below="@+id/enemy_name_text_view"
+            android:layout_alignLeft="@+id/enemy_name_text_view"
+            android:layout_alignStart="@+id/enemy_name_text_view"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="156dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Attack"
+            android:id="@+id/player_attack_button"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:id="@+id/imageView"
+            android:background="#e70000"
+            android:layout_above="@+id/player_attack_button"
+            android:layout_toLeftOf="@+id/player_attack_button"
+            android:layout_toStartOf="@+id/player_attack_button"
+            android:layout_marginRight="25dp"
+            android:layout_marginEnd="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Player"
+            android:id="@+id/player_name_text_view"
+            android:layout_above="@+id/imageView"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignStart="@+id/imageView"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:id="@+id/player_health_image_view"
+            android:background="#00a339"
+            android:layout_above="@+id/player_attack_button"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignStart="@+id/imageView"/>
+    </RelativeLayout>
+</LinearLayout>

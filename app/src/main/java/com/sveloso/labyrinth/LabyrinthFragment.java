@@ -1,5 +1,6 @@
 package com.sveloso.labyrinth;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import java.util.Random;
 
 /**
  * Created by Veloso on 7/1/2016.
@@ -67,6 +70,7 @@ public class LabyrinthFragment extends Fragment {
                 sPlayer.setYcoordinate(sPlayer.getYcoordinate() - 1);
                 updateMapDisplay();
                 updateControls();
+                checkEnemyEncounter();
             }
         });
 
@@ -77,6 +81,7 @@ public class LabyrinthFragment extends Fragment {
                 sPlayer.setYcoordinate(sPlayer.getYcoordinate() + 1);
                 updateMapDisplay();
                 updateControls();
+                checkEnemyEncounter();
             }
         });
 
@@ -87,6 +92,7 @@ public class LabyrinthFragment extends Fragment {
                 sPlayer.setXcoordinate(sPlayer.getXcoordinate() - 1);
                 updateMapDisplay();
                 updateControls();
+                checkEnemyEncounter();
             }
         });
 
@@ -97,6 +103,7 @@ public class LabyrinthFragment extends Fragment {
                 sPlayer.setXcoordinate(sPlayer.getXcoordinate() + 1);
                 updateMapDisplay();
                 updateControls();
+                checkEnemyEncounter();
             }
         });
 
@@ -109,6 +116,16 @@ public class LabyrinthFragment extends Fragment {
         updateTopMapBlocks();
         updateCenterMapBlocks();
         updateBottomMapBlocks();
+    }
+
+    // 20% chance for enemy encounter
+    private void checkEnemyEncounter() {
+        Random random = new Random();
+        int chance = random.nextInt(5);
+        if (chance == 1) {
+            Intent intent = new Intent(getActivity(), CombatActivity.class);
+            startActivity(intent);
+        }
     }
 
     // Check whether path up/down/left/right is blocked by walls
