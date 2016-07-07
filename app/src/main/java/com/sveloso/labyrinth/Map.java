@@ -17,8 +17,11 @@ public class Map {
     private static final int ENDING_Y = 1;
 
     // The maze
+    // 0s are unpassable terrain
+    // 1s are passable terrain
+    // 2 is the exit of the maze
     private String row0 =  "0000000000000000000000";
-    private String row1 =  "0111111111000011111110";
+    private String row1 =  "0211111111000011111110";
     private String row2 =  "0000010101111000010000";
     private String row3 =  "0111011101001111110000";
     private String row4 =  "0001010001111000010000";
@@ -58,7 +61,7 @@ public class Map {
         createMap();
     }
 
-    // Returns whether there is a 0 or a 1 at the coordinate
+    // Returns whether there is a 0/1/2 at the coordinate
     public int getType(int x, int y) {
         List<Integer> rowList = mRows.get(y);
         int type = rowList.get(x);

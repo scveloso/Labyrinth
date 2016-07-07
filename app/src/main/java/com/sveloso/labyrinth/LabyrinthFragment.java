@@ -69,6 +69,7 @@ public class LabyrinthFragment extends Fragment {
             public void onClick(View view) {
                 sPlayer.setYcoordinate(sPlayer.getYcoordinate() - 1);
                 updateMapDisplay();
+                checkPlayerOnExit();
                 updateControls();
                 checkEnemyEncounter();
             }
@@ -80,6 +81,7 @@ public class LabyrinthFragment extends Fragment {
             public void onClick(View view) {
                 sPlayer.setYcoordinate(sPlayer.getYcoordinate() + 1);
                 updateMapDisplay();
+                checkPlayerOnExit();
                 updateControls();
                 checkEnemyEncounter();
             }
@@ -91,6 +93,7 @@ public class LabyrinthFragment extends Fragment {
             public void onClick(View view) {
                 sPlayer.setXcoordinate(sPlayer.getXcoordinate() - 1);
                 updateMapDisplay();
+                checkPlayerOnExit();
                 updateControls();
                 checkEnemyEncounter();
             }
@@ -102,6 +105,7 @@ public class LabyrinthFragment extends Fragment {
             public void onClick(View view) {
                 sPlayer.setXcoordinate(sPlayer.getXcoordinate() + 1);
                 updateMapDisplay();
+                checkPlayerOnExit();
                 updateControls();
                 checkEnemyEncounter();
             }
@@ -128,6 +132,14 @@ public class LabyrinthFragment extends Fragment {
         }
     }
 
+    private void checkPlayerOnExit() {
+        if (sPlayer.getXcoordinate() == sMap.getEndingX() &&
+                sPlayer.getYcoordinate() == sMap.getEndingY()) {
+            Intent i = GameEndActivity.newIntent(getActivity(), false);
+            startActivity(i);
+        }
+    }
+
     // Check whether path up/down/left/right is blocked by walls
     // Prevent movement if blocked by walls
     private void updateControls() {
@@ -137,7 +149,7 @@ public class LabyrinthFragment extends Fragment {
         int topCenterType = sMap.getType(topCenterX, topCenterY);
         if (topCenterType == 0) {
             mUpButton.setEnabled(false);
-        } else if (topCenterType == 1) {
+        } else if (topCenterType == 1 || topCenterType == 2) {
             mUpButton.setEnabled(true);
         }
 
@@ -147,7 +159,7 @@ public class LabyrinthFragment extends Fragment {
         int bottomCenterType = sMap.getType(bottomCenterX, bottomCenterY);
         if (bottomCenterType == 0) {
             mDownButton.setEnabled(false);
-        } else if (bottomCenterType == 1) {
+        } else if (bottomCenterType == 1 || bottomCenterType == 2) {
             mDownButton.setEnabled(true);
         }
 
@@ -157,7 +169,7 @@ public class LabyrinthFragment extends Fragment {
         int centerLeftType = sMap.getType(centerLeftX, centerLeftY);
         if (centerLeftType == 0) {
             mLeftButton.setEnabled(false);
-        } else if (centerLeftType == 1) {
+        } else if (centerLeftType == 1 || centerLeftType == 2) {
             mLeftButton.setEnabled(true);
         }
 
@@ -167,7 +179,7 @@ public class LabyrinthFragment extends Fragment {
         int centerRightType = sMap.getType(centerRightX, centerRightY);
         if (centerRightType == 0) {
             mRightButton.setEnabled(false);
-        } else if (centerRightType == 1) {
+        } else if (centerRightType == 1 || centerRightType == 2) {
             mRightButton.setEnabled(true);
         }
     }
@@ -181,6 +193,8 @@ public class LabyrinthFragment extends Fragment {
             mTopLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
         } else if (topLeftType == 1) {
             mTopLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+        } else if (topLeftType == 2) {
+            mTopLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
         }
 
         // Updates display for top center map block
@@ -191,6 +205,8 @@ public class LabyrinthFragment extends Fragment {
             mTopCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
         } else if (topCenterType == 1) {
             mTopCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+        } else if (topCenterType == 2) {
+            mTopCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
         }
 
         // Updates display for top right map block
@@ -201,6 +217,8 @@ public class LabyrinthFragment extends Fragment {
             mTopRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
         } else if (topRightType == 1) {
             mTopRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+        } else if (topRightType == 2) {
+            mTopRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
         }
     }
 
@@ -213,6 +231,8 @@ public class LabyrinthFragment extends Fragment {
             mCenterLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
         } else if (centerLeftType == 1) {
             mCenterLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+        } else if (centerLeftType == 2) {
+            mCenterLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
         }
 
         // Update center right map block
@@ -223,6 +243,8 @@ public class LabyrinthFragment extends Fragment {
             mCenterRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
         } else if (centerRightType == 1) {
             mCenterRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+        }else if (centerRightType == 2) {
+            mCenterRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
         }
     }
 
@@ -235,6 +257,8 @@ public class LabyrinthFragment extends Fragment {
             mBottomLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
         } else if (bottomLeftType == 1) {
             mBottomLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+        } else if (bottomLeftType == 2) {
+            mBottomLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
         }
 
         // Update bottom center map block
@@ -245,6 +269,8 @@ public class LabyrinthFragment extends Fragment {
             mBottomCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
         } else if (bottomCenterType == 1) {
             mBottomCenter .setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+        } else if (bottomCenterType == 2) {
+            mBottomCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
         }
 
         // Update bottom right map block
@@ -255,6 +281,8 @@ public class LabyrinthFragment extends Fragment {
             mBottomRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
         } else if (bottomRightType == 1) {
             mBottomRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+        } else if (bottomRightType == 2) {
+            mBottomRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
         }
     }
 }

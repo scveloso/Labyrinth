@@ -18,5 +18,7 @@
         </activity>
         <activity android:name=".CombatActivity" >
         </activity>
+        <activity android:name=".GameEndActivity" >
+        </activity>
     </application>
 </manifest>

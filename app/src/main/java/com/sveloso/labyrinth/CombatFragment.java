@@ -1,5 +1,6 @@
 package com.sveloso.labyrinth;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.TypedValue;
@@ -82,8 +83,8 @@ public class CombatFragment extends Fragment {
 
         // Check if either are dead
         if (mPlayerHealth.getLayoutParams().width == 0) {
-            mPlayerAttack.setEnabled(false);
-            Toast.makeText(getActivity(), "Defeated!", Toast.LENGTH_SHORT).show();
+            Intent i = GameEndActivity.newIntent(getActivity(), true);
+            startActivity(i);
         } else if (mEnemyHealth.getLayoutParams().width == 0) {
             getActivity().finish();
         }

@@ -6,7 +6,6 @@ import android.os.Bundle;
 
 public class LabyrinthActivity extends SingleFragmentActivity {
 
-
     @Override
     protected Fragment createFragment() {
         return LabyrinthFragment.newInstance();
