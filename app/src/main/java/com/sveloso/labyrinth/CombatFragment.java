@@ -44,6 +44,7 @@ public class CombatFragment extends Fragment {
 
         // Enemy views
         mEnemyImage = (ImageView) v.findViewById(R.id.enemy_pic_image_view);
+        mEnemyImage.setImageResource(R.mipmap.ic_snake_enemy);
         mEnemyName = (TextView) v.findViewById(R.id.enemy_name_text_view);
         mEnemyHealth = (ImageView) v.findViewById(R.id.enemy_health_image_view);
 
