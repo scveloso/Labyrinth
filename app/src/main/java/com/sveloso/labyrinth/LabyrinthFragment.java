@@ -238,13 +238,21 @@ public class LabyrinthFragment extends Fragment {
         int topLeftY = sPlayer.getYcoordinate() - 1;
         int topLeftType = sMap.getType(topLeftX, topLeftY);
         if (topLeftType == 0) {
+            mTopLeft.setImageResource(R.mipmap.ic_walls);
             mTopLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
+
         } else if (topLeftType == 1) {
+            mTopLeft.setImageResource(R.mipmap.ic_path);
             mTopLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+
         } else if (topLeftType == 2) {
+            mTopLeft.setImageResource(R.mipmap.ic_exit);
             mTopLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
+
         } else if (topLeftType == 3) {
-            mTopLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+            mTopLeft.setImageResource(R.mipmap.ic_health_pack);
+            mTopLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorHealth));
+
         }
 
         // Updates display for top center map block
@@ -252,13 +260,21 @@ public class LabyrinthFragment extends Fragment {
         int topCenterY = sPlayer.getYcoordinate() - 1;
         int topCenterType = sMap.getType(topCenterX, topCenterY);
         if (topCenterType == 0) {
+            mTopCenter.setImageResource(R.mipmap.ic_walls);
             mTopCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
+
         } else if (topCenterType == 1) {
+            mTopCenter.setImageResource(R.mipmap.ic_path);
             mTopCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+
         } else if (topCenterType == 2) {
+            mTopCenter.setImageResource(R.mipmap.ic_exit);
             mTopCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
+
         } else if (topCenterType == 3) {
-            mTopCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+            mTopCenter.setImageResource(R.mipmap.ic_health_pack);
+            mTopCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorHealth));
+
         }
 
         // Updates display for top right map block
@@ -266,13 +282,21 @@ public class LabyrinthFragment extends Fragment {
         int topRightY = sPlayer.getYcoordinate() - 1;
         int topRightType = sMap.getType(topRightX, topRightY);
         if (topRightType == 0) {
+            mTopRight.setImageResource(R.mipmap.ic_walls);
             mTopRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
+
         } else if (topRightType == 1) {
+            mTopRight.setImageResource(R.mipmap.ic_path);
             mTopRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+
         } else if (topRightType == 2) {
+            mTopRight.setImageResource(R.mipmap.ic_exit);
             mTopRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
+
         } else if (topRightType == 3) {
-            mTopRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+            mTopRight.setImageResource(R.mipmap.ic_health_pack);
+            mTopRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorHealth));
+
         }
     }
 
@@ -282,13 +306,21 @@ public class LabyrinthFragment extends Fragment {
         int centerLeftY = sPlayer.getYcoordinate();
         int centerLeftType = sMap.getType(centerLeftX, centerLeftY);
         if (centerLeftType == 0) {
+            mCenterLeft.setImageResource(R.mipmap.ic_walls);
             mCenterLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
+
         } else if (centerLeftType == 1) {
+            mCenterLeft.setImageResource(R.mipmap.ic_path);
             mCenterLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+
         } else if (centerLeftType == 2) {
+            mCenterLeft.setImageResource(R.mipmap.ic_exit);
             mCenterLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
+
         } else if (centerLeftType == 3) {
-            mCenterLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+            mCenterLeft.setImageResource(R.mipmap.ic_health_pack);
+            mCenterLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorHealth));
+
         }
 
         // Update center right map block
@@ -296,13 +328,21 @@ public class LabyrinthFragment extends Fragment {
         int centerRightY = sPlayer.getYcoordinate();
         int centerRightType = sMap.getType(centerRightX, centerRightY);
         if (centerRightType == 0) {
+            mCenterRight.setImageResource(R.mipmap.ic_walls);
             mCenterRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
+
         } else if (centerRightType == 1) {
+            mCenterRight.setImageResource(R.mipmap.ic_path);
             mCenterRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+
         } else if (centerRightType == 2) {
+            mCenterRight.setImageResource(R.mipmap.ic_exit);
             mCenterRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
+
         } else if (centerRightType == 3) {
-            mCenterRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+            mCenterRight.setImageResource(R.mipmap.ic_health_pack);
+            mCenterRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorHealth));
+
         }
     }
 
@@ -312,13 +352,18 @@ public class LabyrinthFragment extends Fragment {
         int bottomLeftY = sPlayer.getYcoordinate() + 1;
         int bottomLeftType = sMap.getType(bottomLeftX, bottomLeftY);
         if (bottomLeftType == 0) {
+            mBottomLeft.setImageResource(R.mipmap.ic_walls);
             mBottomLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
         } else if (bottomLeftType == 1) {
+            mBottomLeft.setImageResource(R.mipmap.ic_path);
             mBottomLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
         } else if (bottomLeftType == 2) {
+            mBottomLeft.setImageResource(R.mipmap.ic_exit);
             mBottomLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
         } else if (bottomLeftType == 3) {
-            mBottomLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+            mBottomLeft.setImageResource(R.mipmap.ic_health_pack);
+            mBottomLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorHealth));
+
         }
 
         // Update bottom center map block
@@ -326,13 +371,20 @@ public class LabyrinthFragment extends Fragment {
         int bottomCenterY = sPlayer.getYcoordinate() + 1;
         int bottomCenterType = sMap.getType(bottomCenterX, bottomCenterY);
         if (bottomCenterType == 0) {
+            mBottomCenter.setImageResource(R.mipmap.ic_walls);
             mBottomCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
         } else if (bottomCenterType == 1) {
-            mBottomCenter .setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+            mBottomCenter.setImageResource(R.mipmap.ic_path);
+            mBottomCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+
         } else if (bottomCenterType == 2) {
+            mBottomCenter.setImageResource(R.mipmap.ic_exit);
             mBottomCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
+
         } else if (bottomCenterType == 3) {
-            mBottomCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+            mBottomCenter.setImageResource(R.mipmap.ic_health_pack);
+            mBottomCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorHealth));
+
         }
 
         // Update bottom right map block
@@ -340,13 +392,21 @@ public class LabyrinthFragment extends Fragment {
         int bottomRightY = sPlayer.getYcoordinate() + 1;
         int bottomRightType = sMap.getType(bottomRightX, bottomRightY);
         if (bottomRightType == 0) {
+            mBottomRight.setImageResource(R.mipmap.ic_walls);
             mBottomRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
+
         } else if (bottomRightType == 1) {
+            mBottomRight.setImageResource(R.mipmap.ic_path);
             mBottomRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
+
         } else if (bottomRightType == 2) {
+            mBottomRight.setImageResource(R.mipmap.ic_exit);
             mBottomRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorExit));
+
         } else if (bottomRightType == 3) {
-            mBottomRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+            mBottomRight.setImageResource(R.mipmap.ic_health_pack);
+            mBottomRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorHealth));
+
         }
     }
 }

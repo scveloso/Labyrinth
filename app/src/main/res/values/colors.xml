@@ -9,10 +9,14 @@
     </color>
 
     <color name="colorWall">
-        #725E43
+        #7E7E7E
     </color>
 
     <color name="colorExit">
-        #00FF00
+        #B5E61D
+    </color>
+
+    <color name="colorHealth">
+        #FFAEC9
     </color>
 </resources>

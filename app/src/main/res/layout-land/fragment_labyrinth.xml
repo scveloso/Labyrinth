@@ -30,28 +30,28 @@
                 android:id="@+id/top_left_map_block"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="#f3e5cc">
+                android:background="@color/colorWall">
             </ImageView>
 
             <ImageView
                 android:id="@+id/top_center_map_block"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="#f3e5cc">
+                android:background="@color/colorWall">
             </ImageView>
 
             <ImageView
                 android:id="@+id/top_right_map_block"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="#f3e5cc">
+                android:background="@color/colorWall">
             </ImageView>
 
             <ImageView
                 android:id="@+id/center_left_map_block"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="#f3e5cc">
+                android:background="@color/colorWall">
             </ImageView>
 
             <ImageView
@@ -65,28 +65,28 @@
                 android:id="@+id/center_right_map_block"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="#f3e5cc">
+                android:background="@color/colorWall">
             </ImageView>
 
             <ImageView
                 android:id="@+id/bottom_left_map_block"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="#f3e5cc">
+                android:background="@color/colorWall">
             </ImageView>
 
             <ImageView
                 android:id="@+id/bottom_center_map_block"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="#f3e5cc">
+                android:background="@color/colorWall">
             </ImageView>
 
             <ImageView
                 android:id="@+id/bottom_right_map_block"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:background="#f3e5cc">
+                android:background="@color/colorWall">
             </ImageView>
 
         </GridLayout>
