@@ -37,7 +37,7 @@ public class GameEndFragment extends Fragment {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.game_end_fragment, container, false);
+        View v = inflater.inflate(R.layout.fragment_game_end, container, false);
 
         mGameEndText = (TextView) v.findViewById(R.id.game_end_text_view);
         mBackInsideButton = (Button) v.findViewById(R.id.back_inside_button);

@@ -20,27 +20,28 @@ public class Map {
     // 0s are unpassable terrain
     // 1s are passable terrain
     // 2 is the exit of the maze
+    // 3s are health packs
     private String row0 =  "0000000000000000000000";
-    private String row1 =  "0211111111000011111110";
+    private String row1 =  "0211111113000031111130";
     private String row2 =  "0000010101111000010000";
-    private String row3 =  "0111011101001111110000";
-    private String row4 =  "0001010001111000010000";
+    private String row3 =  "0311011101001113110000";
+    private String row4 =  "0001010001311000010000";
     private String row5 =  "0101011101000001110000";
-    private String row6 =  "0111000101111001011000";
+    private String row6 =  "0111000101131001011000";
     private String row7 =  "0100000101001111001110";
-    private String row8 =  "0101101101111000011000";
+    private String row8 =  "0101101101131000011000";
     private String row9 =  "0100110101000000010000";
-    private String row10 = "0110010101111001110000";
+    private String row10 = "0110010101311001110000";
     private String row11 = "0011110101001111000000";
-    private String row12 = "0010000001111000011110";
-    private String row13 = "0011111001000011110010";
+    private String row12 = "0010000001111000011310";
+    private String row13 = "0011311001000011110010";
     private String row14 = "0000001001110010000110";
     private String row15 = "0111111000011110011100";
-    private String row16 = "0100000001110000010000";
+    private String row16 = "0300000001310000010000";
     private String row17 = "0101110111000011110010";
-    private String row18 = "0111011101110110010010";
+    private String row18 = "0111011101110310010010";
     private String row19 = "0100000100010010111010";
-    private String row20 = "0111110111110011101110";
+    private String row20 = "0311110113110011101110";
     private String row21 = "0000000000000000000000";
 
     private static Map sMap;
@@ -66,6 +67,11 @@ public class Map {
         List<Integer> rowList = mRows.get(y);
         int type = rowList.get(x);
         return type;
+    }
+
+    public void setType(int x, int y, int type) {
+        List<Integer> rowList = mRows.get(y);
+        rowList.set(x, type);
     }
 
     // Put the String map into lists of rows and convert them to list of ints
