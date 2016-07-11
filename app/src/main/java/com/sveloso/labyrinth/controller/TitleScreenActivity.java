@@ -1,6 +1,8 @@
-package com.sveloso.labyrinth;
+package com.sveloso.labyrinth.controller;
 
 import android.support.v4.app.Fragment;
+
+import com.sveloso.labyrinth.util.SingleFragmentActivity;
 
 /**
  * Created by Veloso on 7/11/2016.

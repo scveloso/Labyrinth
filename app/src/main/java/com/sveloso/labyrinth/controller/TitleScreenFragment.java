@@ -1,4 +1,4 @@
-package com.sveloso.labyrinth;
+package com.sveloso.labyrinth.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.sveloso.labyrinth.R;
 
 /**
  * Created by Veloso on 7/11/2016.

@@ -1,4 +1,4 @@
-package com.sveloso.labyrinth;
+package com.sveloso.labyrinth.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.sveloso.labyrinth.model.Player;
+import com.sveloso.labyrinth.R;
 
 
 /**

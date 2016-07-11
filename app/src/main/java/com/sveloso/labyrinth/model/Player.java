@@ -1,4 +1,4 @@
-package com.sveloso.labyrinth;
+package com.sveloso.labyrinth.model;
 
 import android.content.Context;
 

@@ -1,8 +1,8 @@
-package com.sveloso.labyrinth;
+package com.sveloso.labyrinth.controller;
 
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+
+import com.sveloso.labyrinth.util.SingleFragmentActivity;
 
 public class LabyrinthActivity extends SingleFragmentActivity {
 

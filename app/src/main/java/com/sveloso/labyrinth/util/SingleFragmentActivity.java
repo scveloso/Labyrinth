@@ -1,9 +1,11 @@
-package com.sveloso.labyrinth;
+package com.sveloso.labyrinth.util;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+
+import com.sveloso.labyrinth.R;
 
 /**
  * Created by Veloso on 5/31/2016.
