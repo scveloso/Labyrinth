@@ -8,17 +8,30 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LabyrinthActivity"
-                    android:screenOrientation="landscape">
+        <activity android:name=".TitleScreenActivity"
+                    android:screenOrientation="landscape"
+                    android:configChanges="orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".CombatActivity" >
+        <activity android:name=".CombatActivity"
+                  android:screenOrientation="landscape"
+                  android:configChanges="orientation">
         </activity>
-        <activity android:name=".GameEndActivity" >
+        <activity android:name=".GameEndActivity"
+                  android:screenOrientation="landscape"
+                  android:configChanges="orientation">
+        </activity>
+        <activity android:name=".LabyrinthActivity"
+                  android:screenOrientation="landscape"
+                  android:configChanges="orientation">
+        </activity>
+        <activity android:name=".CreatePlayerActivity"
+                  android:screenOrientation="landscape"
+                  android:configChanges="orientation" >
         </activity>
     </application>
 </manifest>

@@ -50,6 +50,7 @@ public class CombatFragment extends Fragment {
 
         // Player views
         mPlayerName = (TextView) v.findViewById(R.id.player_name_text_view);
+        mPlayerName.setText(sPlayer.getName());
 
         mPlayerHealth = (ImageView) v.findViewById(R.id.player_health_image_view);
         updatePlayerHealth();

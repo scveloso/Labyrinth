@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.Random;
 
@@ -20,6 +21,8 @@ public class LabyrinthFragment extends Fragment {
 
     private Map sMap;
     private Player sPlayer;
+
+    private TextView mPlayerNameTextView;
 
     private ImageView mTopLeft;
     private ImageView mTopCenter;
@@ -54,6 +57,9 @@ public class LabyrinthFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate (R.layout.fragment_labyrinth, container, false);
+
+        mPlayerNameTextView = (TextView) v.findViewById(R.id.labyrinth_player_name_text_view);
+        mPlayerNameTextView.setText(sPlayer.getName());
 
         mTopLeft = (ImageView) v.findViewById(R.id.top_left_map_block);
         mTopCenter = (ImageView) v.findViewById(R.id.top_center_map_block);

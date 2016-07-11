@@ -126,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="Player"
-                android:id="@+id/textView"
+                android:id="@+id/labyrinth_player_name_text_view"
                 android:textStyle="bold"
                 android:layout_above="@+id/imageView2"
                 android:layout_alignLeft="@+id/imageView2"

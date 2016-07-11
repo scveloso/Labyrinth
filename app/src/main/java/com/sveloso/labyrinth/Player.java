@@ -10,6 +10,7 @@ public class Player {
     private static Player sPlayer;
     private Context mContext;
 
+    private String mName;
     private int mXcoordinate;
     private int mYcoordinate;
 
@@ -49,5 +50,17 @@ public class Player {
 
     public void setHealth(int health) {
         mHealth = health;
+    }
+
+    public void setName(String name) {
+        mName = name;
+    }
+
+    public String getName() {
+        if (mName == null) {
+            return "Player";
+        } else {
+            return mName;
+        }
     }
 }
