@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="@color/colorBackground"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Name"
         android:id="@+id/textView3"
@@ -26,6 +28,7 @@
 
     <Button
         android:layout_width="wrap_content"
+        android:backgroundTint="@color/colorAccent"
         android:layout_height="wrap_content"
         android:text="Create!"
         android:id="@+id/button_create_player"

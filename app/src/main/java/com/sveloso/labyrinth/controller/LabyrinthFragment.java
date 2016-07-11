@@ -54,6 +54,7 @@ public class LabyrinthFragment extends Fragment {
         super.onCreate(savedInstanceState);
         sMap = Map.get(getActivity());
         sPlayer = Player.get(getActivity());
+        sPlayer.setHealth(200);
         sPlayer.setXcoordinate(sMap.getStartingX());
         sPlayer.setYcoordinate(sMap.getStartingY());
     }
@@ -137,6 +138,7 @@ public class LabyrinthFragment extends Fragment {
 
         mPlayerHealth = (ImageView) v.findViewById(R.id.player_health_image_view);
 
+        updatePlayerHealth();
         updateMapDisplay();
         updateControls();
         return v;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="@color/colorBackground"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -15,6 +16,7 @@
 
     <Button
         android:layout_width="wrap_content"
+        android:backgroundTint="@color/colorAccent"
         android:layout_height="wrap_content"
         android:text="@string/start_over_text"
         android:id="@+id/back_inside_button"
@@ -25,6 +27,7 @@
 
     <Button
         android:layout_width="wrap_content"
+        android:backgroundTint="@color/colorAccent"
         android:layout_height="wrap_content"
         android:text="@string/exit_maze_text"
         android:id="@+id/exit_maze_button"
