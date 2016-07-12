@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.sveloso.labyrinth.model.Map;
 import com.sveloso.labyrinth.model.Player;
 import com.sveloso.labyrinth.R;
+import com.sveloso.labyrinth.model.PlayerManager;
 
 import java.util.Random;
 
@@ -23,8 +24,9 @@ import java.util.Random;
  */
 public class LabyrinthFragment extends Fragment {
 
-    private Map sMap;
-    private Player sPlayer;
+    private Map mMap;
+    private Player mPlayer;
+    private PlayerManager mPlayerManager;
 
     private TextView mPlayerNameTextView;
 
@@ -52,11 +54,12 @@ public class LabyrinthFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sMap = Map.get(getActivity());
-        sPlayer = Player.get(getActivity());
-        sPlayer.setHealth(200);
-        sPlayer.setXcoordinate(sMap.getStartingX());
-        sPlayer.setYcoordinate(sMap.getStartingY());
+        mMap = Map.get(getActivity());
+        mPlayerManager = PlayerManager.get(getActivity());
+        mPlayer = mPlayerManager.getCurrentPlayer();
+        mPlayer.setHealth(200);
+        mPlayer.setXcoordinate(mMap.getStartingX());
+        mPlayer.setYcoordinate(mMap.getStartingY());
     }
 
     @Override
@@ -64,7 +67,7 @@ public class LabyrinthFragment extends Fragment {
         View v = inflater.inflate (R.layout.fragment_labyrinth, container, false);
 
         mPlayerNameTextView = (TextView) v.findViewById(R.id.labyrinth_player_name_text_view);
-        mPlayerNameTextView.setText(sPlayer.getName());
+        mPlayerNameTextView.setText(mPlayer.getName());
 
         mTopLeft = (ImageView) v.findViewById(R.id.top_left_map_block);
         mTopCenter = (ImageView) v.findViewById(R.id.top_center_map_block);
@@ -84,7 +87,7 @@ public class LabyrinthFragment extends Fragment {
         mUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sPlayer.setYcoordinate(sPlayer.getYcoordinate() - 1);
+                mPlayer.setYcoordinate(mPlayer.getYcoordinate() - 1);
                 updateMapDisplay();
                 mPlayerImage.setImageResource(R.mipmap.ic_player_back);
                 checkPlayerOnExit();
@@ -98,7 +101,7 @@ public class LabyrinthFragment extends Fragment {
         mDownButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sPlayer.setYcoordinate(sPlayer.getYcoordinate() + 1);
+                mPlayer.setYcoordinate(mPlayer.getYcoordinate() + 1);
                 updateMapDisplay();
                 mPlayerImage.setImageResource(R.mipmap.ic_player_front);
                 checkPlayerOnExit();
@@ -112,7 +115,7 @@ public class LabyrinthFragment extends Fragment {
         mLeftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sPlayer.setXcoordinate(sPlayer.getXcoordinate() - 1);
+                mPlayer.setXcoordinate(mPlayer.getXcoordinate() - 1);
                 updateMapDisplay();
                 mPlayerImage.setImageResource(R.mipmap.ic_player_left);
                 checkPlayerOnExit();
@@ -126,7 +129,7 @@ public class LabyrinthFragment extends Fragment {
         mRightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sPlayer.setXcoordinate(sPlayer.getXcoordinate() + 1);
+                mPlayer.setXcoordinate(mPlayer.getXcoordinate() + 1);
                 updateMapDisplay();
                 mPlayerImage.setImageResource(R.mipmap.ic_player_right);
                 checkPlayerOnExit();
@@ -151,7 +154,7 @@ public class LabyrinthFragment extends Fragment {
     }
 
     private void updatePlayerHealth() {
-        int dimensionInDp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, sPlayer.getHealth(), getResources().getDisplayMetrics());
+        int dimensionInDp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mPlayer.getHealth(), getResources().getDisplayMetrics());
         mPlayerHealth.getLayoutParams().width = dimensionInDp;
         mPlayerHealth.requestLayout();
     }
@@ -167,8 +170,8 @@ public class LabyrinthFragment extends Fragment {
     }
 
     private void checkPlayerOnExit() {
-        if (sPlayer.getXcoordinate() == sMap.getEndingX() &&
-                sPlayer.getYcoordinate() == sMap.getEndingY()) {
+        if (mPlayer.getXcoordinate() == mMap.getEndingX() &&
+                mPlayer.getYcoordinate() == mMap.getEndingY()) {
             Intent i = GameEndActivity.newIntent(getActivity(), false);
             startActivity(i);
         }
@@ -181,22 +184,22 @@ public class LabyrinthFragment extends Fragment {
     }
 
     private void checkPlayerOnHealthPack() {
-        int playerX = sPlayer.getXcoordinate();
-        int playerY = sPlayer.getYcoordinate();
+        int playerX = mPlayer.getXcoordinate();
+        int playerY = mPlayer.getYcoordinate();
         // if player on health pack
-        if (sMap.getType(playerX, playerY) == 3) {
+        if (mMap.getType(playerX, playerY) == 3) {
             // give player 40 health points
-            if (sPlayer.getHealth() + 50 > 200) {
-                sPlayer.setHealth(200);
+            if (mPlayer.getHealth() + 50 > 200) {
+                mPlayer.setHealth(200);
             } else {
-                sPlayer.setHealth(sPlayer.getHealth() + 50);
+                mPlayer.setHealth(mPlayer.getHealth() + 50);
             }
 
             // update new player health
             updatePlayerHealth();
 
             // and remove health pack from map
-            sMap.setType(playerX, playerY, 1);
+            mMap.setType(playerX, playerY, 1);
         }
     }
 
@@ -204,9 +207,9 @@ public class LabyrinthFragment extends Fragment {
     // Prevent movement if blocked by walls
     private void updateControls() {
         // Update up button control
-        int topCenterX = sPlayer.getXcoordinate();
-        int topCenterY = sPlayer.getYcoordinate() - 1;
-        int topCenterType = sMap.getType(topCenterX, topCenterY);
+        int topCenterX = mPlayer.getXcoordinate();
+        int topCenterY = mPlayer.getYcoordinate() - 1;
+        int topCenterType = mMap.getType(topCenterX, topCenterY);
         if (topCenterType == 0) {
             mUpButton.setEnabled(false);
         } else if (topCenterType == 1 || topCenterType == 2 || topCenterType == 3) {
@@ -214,9 +217,9 @@ public class LabyrinthFragment extends Fragment {
         }
 
         // Update down button control
-        int bottomCenterX = sPlayer.getXcoordinate();
-        int bottomCenterY = sPlayer.getYcoordinate() + 1;
-        int bottomCenterType = sMap.getType(bottomCenterX, bottomCenterY);
+        int bottomCenterX = mPlayer.getXcoordinate();
+        int bottomCenterY = mPlayer.getYcoordinate() + 1;
+        int bottomCenterType = mMap.getType(bottomCenterX, bottomCenterY);
         if (bottomCenterType == 0) {
             mDownButton.setEnabled(false);
         } else if (bottomCenterType == 1 || bottomCenterType == 2 || bottomCenterType == 3) {
@@ -224,9 +227,9 @@ public class LabyrinthFragment extends Fragment {
         }
 
         // Update left button control
-        int centerLeftX = sPlayer.getXcoordinate() - 1;
-        int centerLeftY = sPlayer.getYcoordinate();
-        int centerLeftType = sMap.getType(centerLeftX, centerLeftY);
+        int centerLeftX = mPlayer.getXcoordinate() - 1;
+        int centerLeftY = mPlayer.getYcoordinate();
+        int centerLeftType = mMap.getType(centerLeftX, centerLeftY);
         if (centerLeftType == 0) {
             mLeftButton.setEnabled(false);
         } else if (centerLeftType == 1 || centerLeftType == 2 || centerLeftType == 3) {
@@ -234,9 +237,9 @@ public class LabyrinthFragment extends Fragment {
         }
 
         // Update right button control
-        int centerRightX = sPlayer.getXcoordinate() + 1;
-        int centerRightY = sPlayer.getYcoordinate();
-        int centerRightType = sMap.getType(centerRightX, centerRightY);
+        int centerRightX = mPlayer.getXcoordinate() + 1;
+        int centerRightY = mPlayer.getYcoordinate();
+        int centerRightType = mMap.getType(centerRightX, centerRightY);
         if (centerRightType == 0) {
             mRightButton.setEnabled(false);
         } else if (centerRightType == 1 || centerRightType == 2 || centerRightType == 3) {
@@ -246,9 +249,9 @@ public class LabyrinthFragment extends Fragment {
 
     private void updateTopMapBlocks() {
         // Updates display for top left map block
-        int topLeftX = sPlayer.getXcoordinate() - 1;
-        int topLeftY = sPlayer.getYcoordinate() - 1;
-        int topLeftType = sMap.getType(topLeftX, topLeftY);
+        int topLeftX = mPlayer.getXcoordinate() - 1;
+        int topLeftY = mPlayer.getYcoordinate() - 1;
+        int topLeftType = mMap.getType(topLeftX, topLeftY);
         if (topLeftType == 0) {
             mTopLeft.setImageResource(R.mipmap.ic_walls);
             mTopLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
@@ -268,9 +271,9 @@ public class LabyrinthFragment extends Fragment {
         }
 
         // Updates display for top center map block
-        int topCenterX = sPlayer.getXcoordinate();
-        int topCenterY = sPlayer.getYcoordinate() - 1;
-        int topCenterType = sMap.getType(topCenterX, topCenterY);
+        int topCenterX = mPlayer.getXcoordinate();
+        int topCenterY = mPlayer.getYcoordinate() - 1;
+        int topCenterType = mMap.getType(topCenterX, topCenterY);
         if (topCenterType == 0) {
             mTopCenter.setImageResource(R.mipmap.ic_walls);
             mTopCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
@@ -290,9 +293,9 @@ public class LabyrinthFragment extends Fragment {
         }
 
         // Updates display for top right map block
-        int topRightX = sPlayer.getXcoordinate() + 1;
-        int topRightY = sPlayer.getYcoordinate() - 1;
-        int topRightType = sMap.getType(topRightX, topRightY);
+        int topRightX = mPlayer.getXcoordinate() + 1;
+        int topRightY = mPlayer.getYcoordinate() - 1;
+        int topRightType = mMap.getType(topRightX, topRightY);
         if (topRightType == 0) {
             mTopRight.setImageResource(R.mipmap.ic_walls);
             mTopRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
@@ -314,9 +317,9 @@ public class LabyrinthFragment extends Fragment {
 
     private void updateCenterMapBlocks() {
         // Update center left map block
-        int centerLeftX = sPlayer.getXcoordinate() - 1;
-        int centerLeftY = sPlayer.getYcoordinate();
-        int centerLeftType = sMap.getType(centerLeftX, centerLeftY);
+        int centerLeftX = mPlayer.getXcoordinate() - 1;
+        int centerLeftY = mPlayer.getYcoordinate();
+        int centerLeftType = mMap.getType(centerLeftX, centerLeftY);
         if (centerLeftType == 0) {
             mCenterLeft.setImageResource(R.mipmap.ic_walls);
             mCenterLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
@@ -336,9 +339,9 @@ public class LabyrinthFragment extends Fragment {
         }
 
         // Update center right map block
-        int centerRightX = sPlayer.getXcoordinate() + 1;
-        int centerRightY = sPlayer.getYcoordinate();
-        int centerRightType = sMap.getType(centerRightX, centerRightY);
+        int centerRightX = mPlayer.getXcoordinate() + 1;
+        int centerRightY = mPlayer.getYcoordinate();
+        int centerRightType = mMap.getType(centerRightX, centerRightY);
         if (centerRightType == 0) {
             mCenterRight.setImageResource(R.mipmap.ic_walls);
             mCenterRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
@@ -360,9 +363,9 @@ public class LabyrinthFragment extends Fragment {
 
     private void updateBottomMapBlocks() {
         // Update bottom left map block
-        int bottomLeftX = sPlayer.getXcoordinate() - 1;
-        int bottomLeftY = sPlayer.getYcoordinate() + 1;
-        int bottomLeftType = sMap.getType(bottomLeftX, bottomLeftY);
+        int bottomLeftX = mPlayer.getXcoordinate() - 1;
+        int bottomLeftY = mPlayer.getYcoordinate() + 1;
+        int bottomLeftType = mMap.getType(bottomLeftX, bottomLeftY);
         if (bottomLeftType == 0) {
             mBottomLeft.setImageResource(R.mipmap.ic_walls);
             mBottomLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
@@ -379,9 +382,9 @@ public class LabyrinthFragment extends Fragment {
         }
 
         // Update bottom center map block
-        int bottomCenterX = sPlayer.getXcoordinate();
-        int bottomCenterY = sPlayer.getYcoordinate() + 1;
-        int bottomCenterType = sMap.getType(bottomCenterX, bottomCenterY);
+        int bottomCenterX = mPlayer.getXcoordinate();
+        int bottomCenterY = mPlayer.getYcoordinate() + 1;
+        int bottomCenterType = mMap.getType(bottomCenterX, bottomCenterY);
         if (bottomCenterType == 0) {
             mBottomCenter.setImageResource(R.mipmap.ic_walls);
             mBottomCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
@@ -400,9 +403,9 @@ public class LabyrinthFragment extends Fragment {
         }
 
         // Update bottom right map block
-        int bottomRightX = sPlayer.getXcoordinate() + 1;
-        int bottomRightY = sPlayer.getYcoordinate() + 1;
-        int bottomRightType = sMap.getType(bottomRightX, bottomRightY);
+        int bottomRightX = mPlayer.getXcoordinate() + 1;
+        int bottomRightY = mPlayer.getYcoordinate() + 1;
+        int bottomRightType = mMap.getType(bottomRightX, bottomRightY);
         if (bottomRightType == 0) {
             mBottomRight.setImageResource(R.mipmap.ic_walls);
             mBottomRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));

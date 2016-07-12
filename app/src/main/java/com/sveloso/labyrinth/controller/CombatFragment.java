@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.sveloso.labyrinth.model.Player;
 import com.sveloso.labyrinth.R;
+import com.sveloso.labyrinth.model.PlayerManager;
 
 
 /**
@@ -20,7 +21,8 @@ import com.sveloso.labyrinth.R;
  */
 public class CombatFragment extends Fragment {
 
-    private Player sPlayer;
+    private Player mPlayer;
+    private PlayerManager mPlayerManager;
 
     private ImageView mEnemyImage;
     private TextView mEnemyName;
@@ -37,7 +39,8 @@ public class CombatFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sPlayer = Player.get(getActivity());
+        mPlayerManager = PlayerManager.get(getActivity());
+        mPlayer = mPlayerManager.getCurrentPlayer();
     }
 
     @Override
@@ -52,7 +55,7 @@ public class CombatFragment extends Fragment {
 
         // Player views
         mPlayerName = (TextView) v.findViewById(R.id.player_name_text_view);
-        mPlayerName.setText(sPlayer.getName());
+        mPlayerName.setText(mPlayer.getName());
 
         mPlayerHealth = (ImageView) v.findViewById(R.id.player_health_image_view);
         updatePlayerHealth();
@@ -82,7 +85,7 @@ public class CombatFragment extends Fragment {
         mEnemyHealth.requestLayout();
 
         // Enemy attack player
-        sPlayer.setHealth(sPlayer.getHealth() - 10);
+        mPlayer.setHealth(mPlayer.getHealth() - 10);
         updatePlayerHealth();
 
         // Check if either are dead
@@ -96,7 +99,7 @@ public class CombatFragment extends Fragment {
 
     // Set player health bar to player health
     private void updatePlayerHealth() {
-        int dimensionInDp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, sPlayer.getHealth(), getResources().getDisplayMetrics());
+        int dimensionInDp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mPlayer.getHealth(), getResources().getDisplayMetrics());
         mPlayerHealth.getLayoutParams().width = dimensionInDp;
         mPlayerHealth.requestLayout();
     }

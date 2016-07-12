@@ -33,5 +33,10 @@
                   android:screenOrientation="landscape"
                   android:configChanges="orientation" >
         </activity>
+        <activity android:name=".controller.PlayerListActivity"
+                  android:screenOrientation="landscape"
+                  android:parentActivityName=".controller.TitleScreenActivity"
+                  android:configChanges="orientation">
+        </activity>
     </application>
 </manifest>

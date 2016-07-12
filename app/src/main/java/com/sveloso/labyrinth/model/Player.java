@@ -2,30 +2,32 @@ package com.sveloso.labyrinth.model;
 
 import android.content.Context;
 
+import java.util.UUID;
+
 /**
  * Created by Veloso on 7/1/2016.
  */
 public class Player {
 
-    private static Player sPlayer;
-    private Context mContext;
-
     private String mName;
+    private UUID mId;
+
     private int mXcoordinate;
     private int mYcoordinate;
-
     private int mHealth;
 
-    public static Player get(Context context) {
-        if (sPlayer == null) {
-            sPlayer = new Player (context);
-        }
-        return sPlayer;
+    public Player() {
+        this(UUID.randomUUID());
     }
 
-    private Player (Context context) {
-        mContext = context;
+    public Player(UUID id) {
+        mId = id;
         mHealth = 200;
+        mName = "Player";
+    }
+
+    public UUID getId() {
+        return mId;
     }
 
     public int getXcoordinate() {
@@ -55,12 +57,5 @@ public class Player {
     public void setName(String name) {
         mName = name;
     }
-
-    public String getName() {
-        if (mName == null) {
-            return "Player";
-        } else {
-            return mName;
-        }
-    }
+    
 }

@@ -13,13 +13,17 @@ import android.widget.ImageView;
 
 import com.sveloso.labyrinth.model.Player;
 import com.sveloso.labyrinth.R;
+import com.sveloso.labyrinth.model.PlayerManager;
+
+import java.util.List;
 
 /**
  * Created by Veloso on 7/11/2016.
  */
 public class CreatePlayerFragment extends Fragment{
 
-    private Player sPlayer;
+    private Player mPlayer;
+    private PlayerManager mPlayerManager;
 
     private EditText mPlayerNameField;
     private Button mCreatePlayerButton;
@@ -32,7 +36,8 @@ public class CreatePlayerFragment extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sPlayer = Player.get(getActivity());
+        mPlayerManager = PlayerManager.get(getActivity());
+        mPlayer = new Player();
     }
 
     @Override
@@ -45,7 +50,9 @@ public class CreatePlayerFragment extends Fragment{
         mCreatePlayerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sPlayer.setName(mPlayerNameField.getText().toString());
+                mPlayer.setName(mPlayerNameField.getText().toString());
+                mPlayerManager.addPlayer(mPlayer);
+                mPlayerManager.setCurrentPlayer(mPlayer.getId());
                 Intent i = new Intent(getActivity(), LabyrinthActivity.class);
                 startActivity(i);
             }

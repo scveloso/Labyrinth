@@ -52,7 +52,7 @@ public class TitleScreenFragment extends Fragment {
     }
 
     private void viewSavedGames() {
-        // Create new intent with LoadGameActivity
-        // View saved games
+        Intent i = new Intent(getActivity(), PlayerListActivity.class);
+        startActivity(i);
     }
 }

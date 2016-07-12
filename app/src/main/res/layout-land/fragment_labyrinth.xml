@@ -173,7 +173,7 @@
                 android:layout_alignTop="@+id/down_button"
                 android:layout_toRightOf="@+id/down_button"
                 android:layout_toEndOf="@+id/down_button"
-                android:background="@mipmap/ic_right_button"/>
+                android:background="@mipmap/ic_right_arrow"/>
         </RelativeLayout>
 
     </RelativeLayout>
