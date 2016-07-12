@@ -257,7 +257,7 @@ public class LabyrinthFragment extends Fragment {
             mTopLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
 
         } else if (topLeftType == 1) {
-            mTopLeft.setImageResource(R.mipmap.ic_path);
+            mTopLeft.setImageResource(R.mipmap.ic_new_path);
             mTopLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
 
         } else if (topLeftType == 2) {
@@ -279,7 +279,7 @@ public class LabyrinthFragment extends Fragment {
             mTopCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
 
         } else if (topCenterType == 1) {
-            mTopCenter.setImageResource(R.mipmap.ic_path);
+            mTopCenter.setImageResource(R.mipmap.ic_new_path);
             mTopCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
 
         } else if (topCenterType == 2) {
@@ -301,7 +301,7 @@ public class LabyrinthFragment extends Fragment {
             mTopRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
 
         } else if (topRightType == 1) {
-            mTopRight.setImageResource(R.mipmap.ic_path);
+            mTopRight.setImageResource(R.mipmap.ic_new_path);
             mTopRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
 
         } else if (topRightType == 2) {
@@ -325,7 +325,7 @@ public class LabyrinthFragment extends Fragment {
             mCenterLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
 
         } else if (centerLeftType == 1) {
-            mCenterLeft.setImageResource(R.mipmap.ic_path);
+            mCenterLeft.setImageResource(R.mipmap.ic_new_path);
             mCenterLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
 
         } else if (centerLeftType == 2) {
@@ -347,7 +347,7 @@ public class LabyrinthFragment extends Fragment {
             mCenterRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
 
         } else if (centerRightType == 1) {
-            mCenterRight.setImageResource(R.mipmap.ic_path);
+            mCenterRight.setImageResource(R.mipmap.ic_new_path);
             mCenterRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
 
         } else if (centerRightType == 2) {
@@ -370,7 +370,7 @@ public class LabyrinthFragment extends Fragment {
             mBottomLeft.setImageResource(R.mipmap.ic_walls);
             mBottomLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
         } else if (bottomLeftType == 1) {
-            mBottomLeft.setImageResource(R.mipmap.ic_path);
+            mBottomLeft.setImageResource(R.mipmap.ic_new_path);
             mBottomLeft.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
         } else if (bottomLeftType == 2) {
             mBottomLeft.setImageResource(R.mipmap.ic_exit);
@@ -389,7 +389,7 @@ public class LabyrinthFragment extends Fragment {
             mBottomCenter.setImageResource(R.mipmap.ic_walls);
             mBottomCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
         } else if (bottomCenterType == 1) {
-            mBottomCenter.setImageResource(R.mipmap.ic_path);
+            mBottomCenter.setImageResource(R.mipmap.ic_new_path);
             mBottomCenter.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
 
         } else if (bottomCenterType == 2) {
@@ -411,7 +411,7 @@ public class LabyrinthFragment extends Fragment {
             mBottomRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorWall));
 
         } else if (bottomRightType == 1) {
-            mBottomRight.setImageResource(R.mipmap.ic_path);
+            mBottomRight.setImageResource(R.mipmap.ic_new_path);
             mBottomRight.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPath));
 
         } else if (bottomRightType == 2) {
