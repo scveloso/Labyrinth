@@ -57,5 +57,8 @@ public class Player {
     public void setName(String name) {
         mName = name;
     }
-    
+
+    public String getName() {
+        return mName;
+    }
 }
